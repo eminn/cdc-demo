@@ -73,7 +73,7 @@ Optionally if you would like to see the logs for other services use the followin
     make tailClient
     ```
 
-# Inserting new row to MySQL
+# Inserting data to MySQL
 We will insert a new row to one of the tables that we are listening and see that
 a new event will be propagated by the Debezium source and logged in the Jet pipeline.
 
