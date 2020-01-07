@@ -36,7 +36,7 @@ make up
 
 This will start the services and the job. The job will listen for changes on the
 configured `inventory` database and logs the events as they arrive to the 
-standard out. The source for the job can be found [here](src/main/java/LogCDCWithJet.java)
+standard out. The source for the job can be found [here](https://github.com/eminn/cdc-demo/blob/master/src/main/java/CDCWithJet.java)
 
 
 # Viewing the Logs
