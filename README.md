@@ -11,11 +11,6 @@ configuration for Debezium.
 - `hazelcast-jet-submit` - This image submits a Jet job that was packaged as a
  self-contained JAR file to the Hazelcast Jet Cluster via CLI.
 
-We will use `TradingVolume` code sample to show the details of packaging it 
-into fat-jar and submitting it to the Hazelcast Jet Cluster. More information 
-about the `TradingVolume` code sample can be found on [Rolling Aggregation](./src/main/java/TradingVolume.java).
-
-
 # Prerequisites
 
 - Docker with Docker Compose: [Installation guide](https://docs.docker.com/install/)
