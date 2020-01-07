@@ -85,7 +85,7 @@ a new event will be propagated by the Debezium source and logged in the Jet pipe
 To make changes, log into the database by using the command below:
 
 ```
-make logDb
+make connectDb
 ```
 
 You should see the mysql command prompt:
