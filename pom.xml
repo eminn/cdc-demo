@@ -11,12 +11,11 @@
     <properties>
         <jdk.version>1.8</jdk.version>
         <hazelcast-jet.version>4.0-SNAPSHOT</hazelcast-jet.version>
-        <debezium-jet.version>0.1-SNAPSHOT</debezium-jet.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.plugin.version>2.5.1</maven.compiler.plugin.version>
         <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>
         <maven-assembly-plugin.version>3.2.0</maven-assembly-plugin.version>
-        <debezium-connector-mysql.version>1.0.0.Final</debezium-connector-mysql.version>
+        <connect-json.version>2.2.0</connect-json.version>
     </properties>
 
     <dependencies>
@@ -26,14 +25,14 @@
             <version>${hazelcast-jet.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.hazelcast.jet.contrib</groupId>
-            <artifactId>debezium</artifactId>
-            <version>${debezium-jet.version}</version>
+            <groupId>com.hazelcast.jet</groupId>
+            <artifactId>hazelcast-jet-kafka</artifactId>
+            <version>${hazelcast-jet.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.debezium</groupId>
-            <artifactId>debezium-connector-mysql</artifactId>
-            <version>${debezium-connector-mysql.version}</version>
+            <groupId>org.apache.kafka</groupId>
+            <artifactId>connect-json</artifactId>
+            <version>${connect-json.version}</version>
         </dependency>
     </dependencies>
 
@@ -77,7 +76,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>CDCWithJet</mainClass>
+                            <mainClass>com.hazelcast.jet.demo.cdc.CDCWithJet</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
@@ -89,7 +88,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>CDCWithJet</mainClass>
+                            <mainClass>com.hazelcast.jet.demo.cdc.CDCWithJet</mainClass>
                         </manifest>
                     </archive>
                     <descriptorRefs>
