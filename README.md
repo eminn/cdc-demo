@@ -41,8 +41,9 @@ make up
 
 This will start the services and the Hazelcast Jet pipeline. At this stage we have
 MySQL, Kafka, Kafka Connect, ZooKeeper and Hazelcast Jet is running. The Kafka
-Connect service has not started the Debezium MySQL connector yet. So we'll run
-the Debezium MySQL connector with the following command:
+Connect service has not started the Debezium MySQL connector yet. 
+
+So we'll start the Debezium MySQL connector with the following command:
 
 ```bash
 make startDebezium
@@ -99,7 +100,7 @@ The running Hazelcast Jet pipeline listen for changes on the Kafka topic
 named `dbserver1.inventory.customers`, logs the events as they arrive to the 
 standard out and puts them to an IMap. 
 
-The source for the Jet pipeline can be found [here](https://github.com/eminn/cdc-demo/blob/master/src/main/java/com/hazelcast/jet/demo/cdc/CDCWithJet.java)
+The source for the Jet pipeline can be found [here](https://github.com/eminn/cdc-demo/blob/kafka-connect/src/main/java/com/hazelcast/jet/demo/cdc/CDCWithJet.java)
 
 So it should print logs similar to below (schema definition in the events are omitted and 
 JSON is pretty printed for clarity ):
