@@ -239,7 +239,7 @@ make tailServer
 hazelcast-jet_1| 2020-01-08 13:52:26,027  INFO [streamKafka(dbserver1_inventory_customers)#0] [hz.sweet_wu.jet.blocking.thread-0] - [172.23.0.6]:5701 [cdc-demo] [4.0-SNAPSHOT] Output to ordinal 0: 
 ({
    "payload": {
-     "id": 1001
+     "id": 1004
    }
  }, 
 {
