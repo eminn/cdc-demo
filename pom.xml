@@ -10,7 +10,7 @@
 
     <properties>
         <jdk.version>1.8</jdk.version>
-        <hazelcast-jet.version>4.0-SNAPSHOT</hazelcast-jet.version>
+        <hazelcast-jet.version>3.2.1</hazelcast-jet.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.plugin.version>2.5.1</maven.compiler.plugin.version>
         <maven-jar-plugin.version>3.2.0</maven-jar-plugin.version>

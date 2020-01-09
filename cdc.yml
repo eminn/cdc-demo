@@ -11,28 +11,28 @@ services:
       - MYSQL_ROOT_PASSWORD=mysqlpw
 
   hazelcast-jet:
-    image: hazelcast/hazelcast-jet:latest-snapshot
+    image: hazelcast/hazelcast-jet:latest
     volumes:
-        - ./src/main/resources:/tmp/config/ #mount local config files to the container
+        - ./src/main/resources:/opt/hazelcast-jet/config/ #mount local config files to the container
     environment:
-        - JAVA_OPTS=-Dhazelcast.config=/tmp/config/hazelcast.yaml
+        - JAVA_OPTS=-Dhazelcast.config=/opt/hazelcast-jet/config/hazelcast.xml
     depends_on:
       - mysql
       - kafka-connect
 
   hazelcast-jet-submit:
-    image: hazelcast/hazelcast-jet:latest-snapshot
+    image: hazelcast/hazelcast-jet:latest
     volumes:
-        - ./src/main/resources:/tmp/config/ #mount local config files to the container
+        - ./src/main/resources:/opt/hazelcast-jet/config/ #mount local config files to the container
         - ./jars/:/jars/                    #mount local JAR files to the container
     environment:
-        - JAVA_OPTS=-Dhazelcast.client.config=/tmp/config/hazelcast-client.yaml
+        - JAVA_OPTS=-Dhazelcast.client.config=/opt/hazelcast-jet/config/hazelcast-client.xml
         - JOB_JAR=${JOB_JAR}
     depends_on:
         - hazelcast-jet
     container_name: hazelcast-jet-submit
     working_dir: /opt/hazelcast-jet/
-    entrypoint: jet -v submit $JOB_JAR
+    entrypoint: jet.sh -v submit $JOB_JAR
 
   zoo:
     image: debezium/zookeeper

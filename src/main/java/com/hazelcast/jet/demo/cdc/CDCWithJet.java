@@ -3,10 +3,10 @@ package com.hazelcast.jet.demo.cdc;
 import com.hazelcast.internal.json.Json;
 import com.hazelcast.internal.json.JsonValue;
 import com.hazelcast.jet.JetInstance;
-import com.hazelcast.jet.impl.JetBootstrap;
 import com.hazelcast.jet.kafka.KafkaSources;
 import com.hazelcast.jet.pipeline.Pipeline;
 import com.hazelcast.jet.pipeline.Sinks;
+import com.hazelcast.jet.server.JetBootstrap;
 import org.apache.kafka.connect.json.JsonDeserializer;
 
 import java.util.Properties;
@@ -31,14 +31,14 @@ public class CDCWithJet {
         properties.setProperty("auto.offset.reset", "earliest");
         Pipeline p = Pipeline.create();
 
-        p.readFrom(KafkaSources.kafka(properties, record -> {
+        p.drawFrom(KafkaSources.kafka(properties, record -> {
             JsonValue key = Json.parse(record.key().toString());
             JsonValue value = Json.parse(record.value().toString());
             return tuple2(key, value);
         }, "dbserver1.inventory.customers"))
          .withoutTimestamps()
          .peek()
-         .writeTo(Sinks.map("customers"));
+         .drainTo(Sinks.map("customers"));
 
         jet.newJob(p).join();
     }
